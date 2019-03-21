@@ -1,11 +1,11 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %> - <%= current_user.email %></h1>
+    <h1>Order #<%= @order.id %> - <%= @order.email %></h1>
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order <%= current_user.first_name%>!</h4>
+    <h4>Thank you for your order <%= User.find_by(email: @order.email).first_name %>!</h4>
   </div>
 
     <div class="panel panel-default items">
