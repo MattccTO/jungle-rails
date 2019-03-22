@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
   has_many :line_items
   has_many :reviews
 
+  # accepts_nested_attributes_for
   validates :name, presence: true
   validates :price, presence: true
   validates :quantity, presence: true
