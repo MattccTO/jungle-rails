@@ -5,7 +5,7 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order <%= User.find_by(email: @order.email).first_name %>!</h4>
+    <h4>Thank you for your order <%= current_user ? User.find_by(email: @order.email).first_name : "Guest" %>!</h4>
 
     <div class="panel panel-default items">
       <table class="table table-bordered">
