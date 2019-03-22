@@ -39,7 +39,7 @@ cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
-  quantity: 10,
+  quantity: 0,
   price: 64.99
 })
 
@@ -132,5 +132,63 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+cat3.products.create!({
+  name:  'Hipster Pillow',
+  description: Faker::Hipster.paragraph(4),
+  image: open_asset('Hipster Pillow.jpg'),
+  quantity: 42,
+  price: 42.13
+})
+
+puts "Creating Users"
+
+User.destroy_all
+
+user1 = User.new
+user1.first_name =  'Tara'
+user1.last_name = 'Test'
+user1.email = 'tara@test.com'
+password1 = '1234'
+user1.password = password1
+user1.save
+
+user2 = User.new
+user2.first_name =  'Timmy'
+user2.last_name = 'Test'
+user2.email = 'timmy@test.com'
+user2.password = password1
+user2.save
+
+user3 = User.new
+user3.first_name =  'Del'
+user3.last_name = 'Tron'
+user3.email = 'del@tron.com'
+user3.password = password1
+user3.save
+
+puts "Creating Reviews"
+
+Review.destroy_all
+
+review1 = Review.new
+review1.product_id = 1
+review1.user_id = 1
+review1.description = "I bough all 42 of these shirts. I'm going to be the Steve Jobs of Liberty Village."
+review1.rating = 5
+review1.save
+
+review2 = Review.new
+review2.product_id = 12
+review2.user_id = 2
+review2.description = "I really love my new seussian bookshelf. It fits almost all of the books I have never read. I just wish it was a biiit more cumbersome."
+review2.rating = 4
+review2.save
+
+review3 = Review.new
+review3.product_id = 6
+review3.user_id = 2
+review3.description = "I bought these and my girlfriend left me..."
+review3.rating = 1
+review3.save
 
 puts "DONE!"
