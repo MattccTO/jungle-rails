@@ -27,6 +27,16 @@
     </div>
 
   </article>
+  <br>
+  <div>
+    <%= form_for [@product, @review] do |f| %>
+    <%= f.label "Rating: " %><%= f.select :rating, [1, 2, 3, 4, 5] %><br>
+    <%= f.label "Review: " %>
+    <%= f.text_field :description, :style => "width:95%;" %><br>
+    <%= f.submit "Create" %>
+    <% end %>
+  </div>
+  <p></p>
   <div>
     <table class="table table-bordered">
       <thead>
