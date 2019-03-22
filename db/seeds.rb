@@ -173,7 +173,7 @@ Review.destroy_all
 review1 = Review.new
 review1.product_id = 1
 review1.user_id = 1
-review1.description = "I bough all 42 of these shirts. I'm going to be the Steve Jobs of Liberty Village."
+review1.description = "I bought all 42 of these shirts. I'm going to be the Steve Jobs of Liberty Village."
 review1.rating = 5
 review1.save
 

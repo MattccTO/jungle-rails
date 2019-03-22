@@ -28,30 +28,32 @@
 
   </article>
   <br>
-  <div>
-    <% if @review.errors.any? %>
-      <%= @review.errors.messages %>
-    <% end %>
-    <%= form_for [@product, @review] do |f| %>
-    <%= f.label "Rating: " %><%= f.select :rating, [1, 2, 3, 4, 5] %><br>
-    <%= f.label "Review: " %>
-    <%= f.text_field :description, :style => "width:95%;" %><br>
-    <%= f.submit "Create" %>
-    <% end %>
-  </div>
-  <p></p>
-  <div>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Rating</th>
-          <th>Review</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render @product.reviews.reverse_order %>
-      </tbody>
-    </table>
-  </div>
+  <% if current_user %>
+    <div>
+      <% if @review.errors.any? %>
+        <%= @review.errors.messages %>
+      <% end %>
+      <%= form_for [@product, @review] do |f| %>
+      <%= f.label "Rating: " %><%= f.select :rating, [1, 2, 3, 4, 5] %><br>
+      <%= f.label "Review: " %>
+      <%= f.text_field :description, :style => "width:95%;" %><br>
+      <%= f.submit "Create" %>
+      <% end %>
+    </div>
+    <p></p>
+    <div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Rating</th>
+            <th>Review</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @product.reviews.reverse_order %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 </section>

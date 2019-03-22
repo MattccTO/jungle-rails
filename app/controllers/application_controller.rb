@@ -37,4 +37,10 @@ class ApplicationController < ActionController::Base
     cookies[:cart]
   end
 
+  def check_logged_in
+    if not current_user
+      redirect_to :root
+    end
+  end
+  helper_method :check_logged_in
 end

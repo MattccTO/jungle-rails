@@ -1,4 +1,3 @@
-<br>
 <tr>
   <td>
     <%= review.user.first_name %>
@@ -9,4 +8,11 @@
   <td>
     <%= review.description %>
   </td>
+    <% if review.user == current_user %>
+      <td>
+        <%= link_to fa_icon('trash'), [review.product, review],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+      </td>
+    <% end %>
 </tr>
