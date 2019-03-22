@@ -191,4 +191,18 @@ review3.description = "I bought these and my girlfriend left me..."
 review3.rating = 1
 review3.save
 
+review4 = Review.new
+review4.product_id = 6
+review4.user_id = 1
+review4.description = "I bought these and never take them off and now I just think of them as my real feet."
+review4.rating = 3
+review4.save
+
+review5 = Review.new
+review5.product_id = 6
+review5.user_id = 3
+review5.description = "They should be hairier."
+review5.rating = 2
+review5.save
+
 puts "DONE!"
