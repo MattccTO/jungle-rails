@@ -27,5 +27,18 @@
     </div>
 
   </article>
-  <div> <%= @product.reviews %> </div>
+  <div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Rating</th>
+          <th>Review</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @product.reviews %>
+      </tbody>
+    </table>
+  </div>
 </section>
