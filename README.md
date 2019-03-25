@@ -31,3 +31,30 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Screenshots
 
+Main product catalog page
+
+!['Catalog'](https://github.com/MattccTO/jungle-rails/blob/master/docs/Jungle%20Catalog.png?raw=true)
+
+Individual product page
+
+!['Product'](https://github.com/MattccTO/jungle-rails/blob/master/docs/Jungle%20Product%20Page.png?raw=true)
+
+Shop by category
+
+!['Category'](https://github.com/MattccTO/jungle-rails/blob/master/docs/Jungle%20Category%20Page.png?raw=true)
+
+Full shopping cart
+
+!['Shopping Cart'](https://github.com/MattccTO/jungle-rails/blob/master/docs/Jungle%20Full%20Cart.png?raw=true)
+
+Stripe purchase
+
+!['Stripe'](https://github.com/MattccTO/jungle-rails/blob/master/docs/Jungle%20Checkout.png?raw=true)
+
+Order confirmation
+
+!['Order confirmation'](https://github.com/MattccTO/jungle-rails/blob/master/docs/Jungle%20Order%20Confirmation.png?raw=true)
+
+Restricted admin areas
+
+!['Admin'](https://github.com/MattccTO/jungle-rails/blob/master/docs/Jungle%20Restricted%20Admin.png?raw=true)
