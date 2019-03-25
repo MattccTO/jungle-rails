@@ -22,6 +22,22 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Average Rating</dt>
+          <dd>
+            <div class="avg-review">
+              <% if @product.reviews.any? %>
+                <% average_rating = @product.reviews.average(:rating).round(0) %>
+                  <% average_rating.to_i.times do %>
+                    <%= fa_icon('star', class: 'filled') %>
+                  <% end %>
+                  <% (5 - average_rating.to_i).times do %>
+                    <%= fa_icon('star') %>
+                  <% end %>
+              <% else %>
+                <p><i> This product has not been reviewed </i></p>
+              <% end %>
+            </div>
+          </dd>
         </dl>
       </div>
     </div>

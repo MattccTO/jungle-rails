@@ -8,9 +8,20 @@
   <p class="description">
     <%= product.description %>
   </p>
-  <p>
-    <%= product.reviews.any? ? "Average Review: #{product.reviews.average(:rating).round(1)}/5" : "" %>
-  </p>
+  <div class="avg-review">
+    <% if product.reviews.any? %>
+      <% average_rating = product.reviews.average(:rating).round(0) %>
+        Average Rating:
+        <% average_rating.to_i.times do %>
+          <%= fa_icon('star', class: 'filled') %>
+        <% end %>
+        <% (5 - average_rating.to_i).times do %>
+          <%= fa_icon('star') %>
+        <% end %>
+    <% else %>
+      <p><i> This product has not been reviewed </i></p>
+    <% end %>
+  </div>
   <footer class="actions">
     <% if (product.quantity > 0) %>
       <%= button_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary' , method: :post do %>
