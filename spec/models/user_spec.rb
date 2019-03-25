@@ -62,4 +62,31 @@ RSpec.describe User, type: :model do
       expect(subject.errors.full_messages.include? "Password is too short (minimum is 8 characters)").to be true
     end
   end
+
+  describe '.authenticate_with_credentials' do
+    before(:each) do
+      User.destroy_all
+      @user = User.create!(first_name: "Not", last_name: "Aperson", email: "test@test.com", password: "password", password_confirmation: "password")
+    end
+
+    it 'Should allow a user to login with valid credentials' do
+      expect(User.authenticate_with_credentials(@user.email, @user.password)).to eql(@user)
+    end
+
+    it 'Should not allow a user to login with an invalid password' do
+      expect(User.authenticate_with_credentials(@user.email, 'notpassword')).to eql(nil)
+    end
+
+    it 'Should not allow a user to login with an invalid password' do
+      expect(User.authenticate_with_credentials('not@email.com', @user.password)).to eql(nil)
+    end
+
+    it 'Should allow a user to login if they have extra spaces on their email input' do
+      expect(User.authenticate_with_credentials("  #{@user.email}  ", @user.password)).to eql(@user)
+    end
+
+    it 'Should allow a user to login if they type their email in wrong case' do
+      expect(User.authenticate_with_credentials("TEst@teST.com", @user.password)).to eql(@user)
+    end
+  end
 end
