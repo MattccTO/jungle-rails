@@ -19,13 +19,9 @@ RSpec.describe Product, type: :model do
     end
 
     it 'is not valid without a price' do
-      @product = cat1.products.new(name: 'testerino', quantity: 42)
-      @product.save
-      missing_price = false
-      @product.errors.full_messages.each do |err|
-        if err == "Price can't be blank" then missing_price = true end
-      end
-      expect(missing_price).to be true
+      product = cat1.products.new(name: 'testerino', quantity: 42)
+      product.save
+      expect(product.errors.full_messages.include? "Price can't be blank").to be true
     end
 
     it 'is not valid without a qty' do
