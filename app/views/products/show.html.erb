@@ -34,10 +34,15 @@
         <%= @review.errors.messages %>
       <% end %>
       <%= form_for [@product, @review] do |f| %>
-      <%= f.label "Rating: " %><%= f.select :rating, [1, 2, 3, 4, 5] %><br>
-      <%= f.label "Review: " %>
-      <%= f.text_field :description, :style => "width:95%;" %><br>
-      <%= f.submit "Create" %>
+      <div class="form-group">
+        <%= f.label "Rating: " %>
+        <%= f.select(:rating, [5, 4, 3, 2, 1], {}, { :class => 'form-control', :style => "width:5%;" }) %>
+      </div>
+      <div class="form-group">
+        <%= f.label "Review: " %>
+        <%= f.text_field :description, :class => 'form-control', :style => "width:95%;" %>
+      </div>
+      <%= f.submit "Create", class: 'btn btn-primary'  %>
       <% end %>
     </div>
     <p></p>
