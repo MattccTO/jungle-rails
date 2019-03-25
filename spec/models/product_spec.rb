@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Product, type: :model do
   describe 'Validations' do
-    #Initialize a valid product for use in validation testing
+    # Initialize a valid product for use in validation testing
     cat1 = Category.new(name: 'Ethereal')
     product = cat1.products.new
     product.name = 'Limited Release Test Kit'
@@ -13,22 +13,22 @@ RSpec.describe Product, type: :model do
       expect(product).to be_valid
     end
 
-    it 'is not valid without a name' do
+    it 'should not be valid without a name' do
       product.name = nil
       expect(product).to_not be_valid
     end
 
-    it 'is not valid without a price' do
+    it 'should not be valid without a price' do
       product.price = nil
       expect(product).to_not be_valid
     end
 
-    it 'is not valid without a qty' do
+    it 'should not be valid without a qty' do
       product.quantity = nil
       expect(product).to_not be_valid
     end
 
-    it 'is not valid without a category' do
+    it 'should not be valid without a category' do
       product.category = nil
       expect(product).to_not be_valid
     end
