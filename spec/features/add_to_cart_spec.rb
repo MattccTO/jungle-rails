@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-require 'rails_helper'
-
 RSpec.feature "Visitor click add to cart button", type: :feature, js: true do
 
   # SETUP
