@@ -1,4 +1,4 @@
-<article class="product">
+<article class="product id_<%= product.id %>">
   <header>
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
@@ -28,7 +28,7 @@
         <%= fa_icon "shopping-cart", text: 'Add' %>
       <% end %>
     <% end %>
-    <%= link_to product, class: 'btn btn-default pull-right' do %>
+    <%= link_to product, class: "btn btn-default pull-right" do %>
       Details &raquo;
     <% end %>
   </footer>
